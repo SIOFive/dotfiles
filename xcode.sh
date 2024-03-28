@@ -2,5 +2,10 @@
 
 # Install Xcode command line developer tools
 
-echo "Install Xcode command line"
-xcode-select --install
+echo "Checking Xcode command line"
+if hash xcode-select 2>/dev/null; then
+  echo "Xcode already installed"
+else
+  echo "Installing Xcode"
+  xcode-select --install
+fi

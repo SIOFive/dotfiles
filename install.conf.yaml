@@ -1,0 +1,30 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.tmux.conf:
+    ~/.vim:
+    ~/.vimrc:
+    ~/.dotfiles: ''
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+  -
+    command: source xcode.sh
+    description: Installing xcode
+    stdout: true
+    stderr: true
+  -
+    command: source homebrew.sh
+    description: Installing homebrew
+    stdout: true
+    stderr: true
+  -
+    command: vim vimrc +PlugInstall +qall
+    description: Installing Vim plugins
+    stdout: true
+    stderr: true
+
