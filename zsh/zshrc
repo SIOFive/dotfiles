@@ -1,0 +1,17 @@
+# Base directory for ZSH configuration
+ZSH_BASE=$HOME/dotfiles/zsh
+
+# Load Antigen
+source $ZSH_BASE/antigen/antigen.zsh 
+
+# Load the oh-my-zsh's library
+antigen use oh-my-zsh
+
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+
+# Load the theme
+antigen theme robbyrussell 
+
+# And lastly, apply the Antigen stuff
+antigen apply

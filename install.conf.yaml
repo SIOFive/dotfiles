@@ -9,9 +9,11 @@
     ~/.vim:
     ~/.vimrc:
     ~/.dotfiles: ''
+    ~/.zshrc: zsh/zshrc
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
+  - [chsh -s $(which zsh), Set zsh as default shell]
   -
     command: source xcode.sh
     description: Installing xcode
@@ -20,6 +22,11 @@
   -
     command: source homebrew.sh
     description: Installing homebrew
+    stdout: true
+    stderr: true
+  -
+    command: source brew.sh
+    description: Installing homebrew formulas
     stdout: true
     stderr: true
   -
