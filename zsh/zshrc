@@ -1,3 +1,10 @@
+# Homebrew configs
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Speed Homebrew with new mirrors
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles
+export HOMEBREW_API_DOMAIN="https://mirrors.aliyun.com/homebrew/homebrew-bottles/api"
+
 # Base directory for ZSH configuration
 ZSH_BASE=$HOME/dotfiles/zsh
 

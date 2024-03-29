@@ -13,7 +13,10 @@
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
-  - [chsh -s $(which zsh), Set zsh as default shell]
+  - ["[[ $SHELL == *zsh ]] || chsh -s $(which zsh)", set zsh as default shell]
+  - ["[[ $SHELL == *zsh ]] || 
+      ( echo 'Set zsh as default now, please restart the shell'
+      && kill -SIGHUP $PPID)", Restart the shell if required]
   -
     command: source xcode.sh
     description: Installing xcode
@@ -25,12 +28,12 @@
     stdout: true
     stderr: true
   -
-    command: source brew.sh
-    description: Installing homebrew formulas
+    command: brew bundle
+    description: Installing homebrew formulas using HomeBrew Bundle
     stdout: true
     stderr: true
   -
-    command: vim vimrc +PlugInstall +qall
+    command: source vim-plugins.sh 
     description: Installing Vim plugins
     stdout: true
     stderr: true
